@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI</title>
+	<link href="jquery-ui.css" rel="stylesheet">
+	<link href="estilo.css" rel="stylesheet">
+
+	<style>
+	body{
+		font-family: "Trebuchet MS", sans-serif;
+		margin: 50px;
+	}
+	.demoHeaders {
+		margin-top: 2em;
+	}
+	#dialog-link {
+		padding: .4em 1em .4em 20px;
+		text-decoration: none;
+		position: relative;
+	}
+	#dialog-link span.ui-icon {
+		margin: 0 5px 0 0;
+		position: absolute;
+		left: .2em;
+		top: 50%;
+		margin-top: -8px;
+	}
+	#icons {
+		margin: 0;
+		padding: 0;
+	}
+	#icons li {
+		margin: 2px;
+		position: relative;
+		padding: 4px 0;
+		cursor: pointer;
+		float: left;
+		list-style: none;
+	}
+	#icons span.ui-icon {
+		float: left;
+		margin: 0 4px;
+	}
+	.fakewindowcontain .ui-widget-overlay {
+		position: absolute;
+	}
+	select {
+		width: 200px;
+	}
+	</style>
+</head>
+<body>
+	<h4>Ejercicio de JQueryUI </h4>
+<p>repara una interfaz de usuario que muestre la potencia de JQueryUI. En la medida de lo posible, trata de que sea similar a una interfaz de usuario de una aplicación real: un escritorio, un sitio web para comprar viajes, una aplicación para interaccionar con una red social, etc. Procura experimentar con los elementos que proporciona JQueryUI, y trata de que se muestren de forma adecuada sus capacidades.</p>
+	<div id="tabs">
+	     <ul>
+	         <li><a href="#tabs-1">Día 1</a></li>
+	         <li><a href="#tabs-2">Día 2</a></li>
+	         <li><a href="#tabs-3">Día 3</a></li>
+	     </ul>
+	     <div id="tabs-1">
+	       <div id="accordion">
+	         <h3>Actividad </h3>
+	         <div>
+	           <p> Paseo en barco</p>
+
+	         </div>
+	         <h3>Alojamiento</h3>
+	         <div>
+	           <p> Habitacion doble (Hostal) </p>
+
+	         </div>
+	       </div>
+	     </div>
+	     <div id="tabs-2">
+	       <div id="accordion2">
+	         <h3>Actividad </h3>
+	         <div>
+	           <p>  visita casco historico</p>
+
+	         </div>
+	         <h3>Alojamiento </h3>
+	         <div>
+	           <p> Apartamento para 2 personas </p>
+	         </div>
+	     </div>
+		 </div>
+			 <div id="tabs-3">
+	       <div id="accordion3">
+	         <h3> Actividad </h3>
+	         <div>
+	           <p> Visita a la costa </p>
+	         </div>
+	         <h3> Alojamiento </h3>
+	         <div>
+	           <p> Apartamento rural </p>
+	         </div>
+	     </div>
+	   </div>
+	 </div>
+	   <p style="float:right">Date: <input type="text" id="datepicker"></p>
+
+<script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.js"></script>
+<script>
+
+$( "#accordion" ).accordion();
+
+
+$( "#accordion2" ).accordion();
+
+
+$( "#accordion3" ).accordion();
+
+var availableTags = [
+	"ActionScript",
+	"AppleScript",
+	"Asp",
+	"BASIC",
+	"C",
+	"C++",
+	"Clojure",
+	"COBOL",
+	"ColdFusion",
+	"Erlang",
+	"Fortran",
+	"Groovy",
+	"Haskell",
+	"Java",
+	"JavaScript",
+	"Lisp",
+	"Perl",
+	"PHP",
+	"Python",
+	"Ruby",
+	"Scala",
+	"Scheme"
+];
+$( "#autocomplete" ).autocomplete({
+	source: availableTags
+});
+
+
+
+$( "#button" ).button();
+$( "#button-icon" ).button({
+	icon: "ui-icon-gear",
+	showLabel: false
+});
+
+
+
+$( "#radioset" ).buttonset();
+
+
+
+$( "#controlgroup" ).controlgroup();
+
+
+
+$( "#tabs" ).tabs();
+
+
+
+$( "#dialog" ).dialog({
+	autoOpen: false,
+	width: 400,
+	buttons: [
+		{
+			text: "Ok",
+			click: function() {
+				$( this ).dialog( "close" );
+			}
+		},
+		{
+			text: "Cancel",
+			click: function() {
+				$( this ).dialog( "close" );
+			}
+		}
+	]
+});
+
+// Link to open the dialog
+$( "#dialog-link" ).click(function( event ) {
+	$( "#dialog" ).dialog( "open" );
+	event.preventDefault();
+});
+
+
+
+$( "#datepicker" ).datepicker({
+	inline: true
+});
+
+
+
+$( "#slider" ).slider({
+	range: true,
+	values: [ 17, 67 ]
+});
+
+
+
+$( "#progressbar" ).progressbar({
+	value: 20
+});
+
+
+
+$( "#spinner" ).spinner();
+
+
+
+$( "#menu" ).menu();
+
+
+
+$( "#tooltip" ).tooltip();
+
+
+
+$( "#selectmenu" ).selectmenu();
+
+
+// Hover states on the static widgets
+$( "#dialog-link, #icons li" ).hover(
+	function() {
+		$( this ).addClass( "ui-state-hover" );
+	},
+	function() {
+		$( this ).removeClass( "ui-state-hover" );
+	}
+);
+</script>
+</body>
+</html>
